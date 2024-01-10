@@ -13,7 +13,7 @@ public class DataServer {
         server.createContext("/ingest", new DataHandler());
         server.setExecutor(null);
         server.start();
-        System.out.println("Server started on port " + serverPort);
+        //System.out.println("Server started on port " + serverPort);
 
         // Run the Python script as a subprocess
         runPythonScript();
