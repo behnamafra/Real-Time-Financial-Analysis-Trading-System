@@ -13,6 +13,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Service;
+
 public class TradingSignalConsumer {
     public static void main(String[] args) {
         startTradingSignalConsumer();
@@ -115,7 +118,7 @@ public class TradingSignalConsumer {
         System.out.println("trueConditions Buy" + trueConditions);
        // System.out.println("emaBuySignal" + emaBuySignal);
 
-        return trueConditions >= 4;
+        return trueConditions >= 3;
     }
 
     private static boolean isSellSignal(String tradingSignal) {
@@ -209,5 +212,6 @@ public class TradingSignalConsumer {
         // For simplicity, let's assume a default value of 0.0
         return previousEMA;
     }
+    
 }
 

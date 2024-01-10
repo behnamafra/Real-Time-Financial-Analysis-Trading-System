@@ -9,5 +9,48 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="libs" level="project" />
     <orderEntry type="library" exported="" name="datomic.java.io" level="project" />
+    <orderEntry type="library" name="springframework.roo.annotations" level="project" />
+    <orderEntry type="library" exported="" name="springframework.boot.spring" level="project" />
+    <orderEntry type="library" exported="" name="springframework.boot.spring.actuator" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/Desktop/spring-boot-2.1.3.RELEASE-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="springframework.boot.spring.actuator.autoconfigure" level="project" />
+    <orderEntry type="library" exported="" name="fr.opensagres.xdocreport.springframework.web.servlet.view" level="project" />
+    <orderEntry type="library" exported="" name="springframework.webflow.binding" level="project" />
+    <orderEntry type="library" exported="" name="springframework.webflow" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/jar_files/spring-web-6.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/jar_files/spring-websocket-6.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/jar_files/spring-messaging-6.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
