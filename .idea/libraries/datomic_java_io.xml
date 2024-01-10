@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="datomic.java.io" type="repository">
+    <properties maven-id="com.datomic:java-io:0.1.29" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/datomic/java-io/0.1.29/java-io-0.1.29.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

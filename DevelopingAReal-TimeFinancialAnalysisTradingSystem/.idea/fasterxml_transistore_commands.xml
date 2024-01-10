@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="fasterxml.transistore.commands" type="repository">
+    <properties maven-id="com.fasterxml.transistore:transistore-commands:0.9.8" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/transistore/transistore-commands/0.9.8/transistore-commands-0.9.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
