@@ -13,15 +13,20 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 public class TradingSignalConsumer {
-    public static void main(String[] args) {
-        startTradingSignalConsumer();
-    }
+    private static   NotificationService notificationService = null;
 
+
+    @Autowired
+    public TradingSignalConsumer(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
     public static void startTradingSignalConsumer() {
+
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "trading-signal-group");
@@ -54,12 +59,25 @@ public class TradingSignalConsumer {
         //System.out.println("BuySignal" + isBuySignal);
         if (isBuySignal) {
             System.out.println("Buy Signal for " + stockSymbol + ": Consider buying shares based on the analysis.");
+            TradingSignalConsumer consumer = new TradingSignalConsumer(notificationService);
+            consumer.sendNotification("Buy Signal for " + stockSymbol);
+
         } else if (isSellSignal) {
             System.out.println("Sell Signal for " + stockSymbol + ": Consider selling shares based on the analysis.");
+            TradingSignalConsumer consumer = new TradingSignalConsumer(notificationService);
+            consumer.sendNotification("Buy Signal for " + stockSymbol);
         } else {
             System.out.println("No clear buy or sell signal for " + stockSymbol + " based on the analysis.");
         }
     }
+    public  void sendNotification(String message) {
+        if (notificationService != null) {
+            notificationService.sendNotification(message);
+        } else {
+            // Handle the case where notificationService is null
+        }
+    }
+
 
     private static boolean isBuySignal(String tradingSignal) {
         JsonNode signalNode = parseJson(tradingSignal);
@@ -212,6 +230,6 @@ public class TradingSignalConsumer {
         // For simplicity, let's assume a default value of 0.0
         return previousEMA;
     }
-    
+
 }
 
