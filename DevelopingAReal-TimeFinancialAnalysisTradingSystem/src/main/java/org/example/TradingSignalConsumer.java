@@ -48,7 +48,7 @@ public class TradingSignalConsumer {
         String stockSymbol = signalNode.has("stock_symbol") ? signalNode.get("stock_symbol").asText() : null;
         boolean isBuySignal = isBuySignal(tradingSignal);
         boolean isSellSignal = isSellSignal(tradingSignal);
-        System.out.println("BuySignal" + isBuySignal);
+        //System.out.println("BuySignal" + isBuySignal);
         if (isBuySignal) {
             System.out.println("Buy Signal for " + stockSymbol + ": Consider buying shares based on the analysis.");
         } else if (isSellSignal) {
@@ -89,29 +89,34 @@ public class TradingSignalConsumer {
                 hasDoubleValue(signalNode, "opening_price") &&
                 signalNode.get("low").asDouble() > signalNode.get("opening_price").asDouble();
 
+        // Exponential Moving Average (EMA): Buy when short-term EMA crosses above long-term EMA
+        int shortTermEMAPeriod = 10; // Adjust as needed
+        int longTermEMAPeriod = 50;  // Adjust as needed
+        double shortTermEMA = calculateEMA(signalNode, "closing_price", shortTermEMAPeriod);
+        double longTermEMA = calculateEMA(signalNode, "closing_price", longTermEMAPeriod);
+        boolean emaBuySignal = shortTermEMA > longTermEMA;
+
         // Combine buy signals (you might need a more sophisticated strategy)
         //if (maBuySignal || rsiBuySignal || upwardTrend || highVolumeBuySignal || supportBounceBuySignal)
         //return
         int trueConditions = 0;
-        System.out.println("maBuySignal" + maBuySignal);
-        System.out.println("rsiBuySignal" + rsiBuySignal);
-        System.out.println("upwardTrend" + upwardTrend);
-        System.out.println("highVolumeBuySignal" + highVolumeBuySignal);
-        System.out.println("supportBounceBuySignal" + supportBounceBuySignal);
+//        System.out.println("maBuySignal" + maBuySignal);
+//        System.out.println("rsiBuySignal" + rsiBuySignal);
+//        System.out.println("upwardTrend" + upwardTrend);
+//        System.out.println("highVolumeBuySignal" + highVolumeBuySignal);
+//        System.out.println("supportBounceBuySignal" + supportBounceBuySignal);
 
         if (maBuySignal) trueConditions++;
+        if (emaBuySignal) trueConditions++;
         if (rsiBuySignal) trueConditions++;
         if (upwardTrend) trueConditions++;
         if (highVolumeBuySignal) trueConditions++;
         if (supportBounceBuySignal) trueConditions++;
-        System.out.println("trueConditions" + trueConditions);
+        System.out.println("trueConditions Buy" + trueConditions);
+       // System.out.println("emaBuySignal" + emaBuySignal);
 
-        if (trueConditions >=3) ;
+        return trueConditions >= 4;
     }
-    // At least three of the conditions are true
-    // Your code here
-}
-
 
     private static boolean isSellSignal(String tradingSignal) {
         JsonNode signalNode = parseJson(tradingSignal);
@@ -144,9 +149,26 @@ public class TradingSignalConsumer {
                 hasDoubleValue(signalNode, "closing_price") &&
                 signalNode.get("high").asDouble() < signalNode.get("closing_price").asDouble();
 
+        // EMI: Sell when Earnings per Share is above a certain threshold
+        boolean emiSellSignal = hasDoubleValue(signalNode, "emi") &&
+                signalNode.get("emi").asDouble() > 0.5; // Adjust the threshold as needed
+
+
         // Combine sell signals (you might need a more sophisticated strategy)
-        return maSellSignal || rsiSellSignal || downwardTrend || highVolumeSellSignal || resistanceRejectSellSignal;
+        //return maSellSignal || rsiSellSignal || downwardTrend || highVolumeSellSignal || resistanceRejectSellSignal;
+        int trueConditions = 0;
+        if (maSellSignal) trueConditions++;
+        if (emiSellSignal) trueConditions++;
+        if (rsiSellSignal) trueConditions++;
+        if (downwardTrend) trueConditions++;
+        if (highVolumeSellSignal) trueConditions++;
+        if (resistanceRejectSellSignal) trueConditions++;
+        System.out.println("trueCondition Sell" + trueConditions);
+
+
+        return trueConditions >= 3;
     }
+
     private static boolean hasDoubleValue(JsonNode node, String key) {
         return node.has(key) && node.get(key).isNumber();
     }
@@ -164,6 +186,28 @@ public class TradingSignalConsumer {
             e.printStackTrace();
             return null;
         }
+    }
+    // At least three of the conditions are true
+    // Your code here
+    private static double calculateEMA(JsonNode signalNode, String key, int period) {
+        if (!hasDoubleValue(signalNode, key)) {
+            return 0.0; // Handle the case where the required field is missing
+        }
+
+        double multiplier = 2.0 / (period + 1);
+        double currentValue = signalNode.get(key).asDouble();
+        double previousEMA = calculatePreviousEMA(signalNode, key, period);
+        return (currentValue - previousEMA) * multiplier + previousEMA;
+    }
+
+    private static double calculatePreviousEMA(JsonNode signalNode, String key, int period) {
+        // For simplicity, let's assume you have a variable to store the previous EMA
+        // You may need to fetch the previous EMA from a data structure or database
+        // For now, let's use a simple variable as an example
+        double previousEMA = 0.0; // Default value
+        // You may use a data structure or store it in a variable
+        // For simplicity, let's assume a default value of 0.0
+        return previousEMA;
     }
 }
 
