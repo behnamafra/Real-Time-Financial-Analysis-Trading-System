@@ -16,7 +16,9 @@ import java.net.http.HttpClient;
 import java.net.http.WebSocket;
 import java.time.Duration;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Properties;
+import java.util.Queue;
 import java.util.concurrent.CompletionStage;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -28,6 +30,9 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 
 public class TradingSignalConsumer {
+    private static final int MOVING_AVERAGE_WINDOW = 5;
+    private static final Queue<Double> closingPricesQueue = new LinkedList<>();
+
     public static void main(String[] args) {
 
         startTradingSignalConsumer();
@@ -62,10 +67,24 @@ public class TradingSignalConsumer {
         Producer<String, String> producer = new KafkaProducer<>(propsw);
         JsonNode signalNode = parseJson(tradingSignal);
         String stockSymbol = signalNode.has("stock_symbol") ? signalNode.get("stock_symbol").asText() : null;
-        boolean isBuySignal = isBuySignal(tradingSignal);
-        boolean isSellSignal = isSellSignal(tradingSignal);
-        System.out.println("BuySignal" + isBuySignal);
+        double closingPrice = signalNode.has("closing_price") ? signalNode.get("closing_price").asDouble() : 0.0;
+
+        // Update the closing prices queue
+        closingPricesQueue.offer(closingPrice);
+        if (closingPricesQueue.size() > MOVING_AVERAGE_WINDOW) {
+            closingPricesQueue.poll(); // Remove the oldest element if the window is full
+        }
+
+        double movingAverage = calculateMovingAverage(closingPricesQueue);
+
+        boolean isBuySignal = isBuySignal(movingAverage, closingPrice);
+        boolean isSellSignal = isSellSignal(movingAverage, closingPrice);
+
+        System.out.println("Moving Average: " + movingAverage);
+        System.out.println("BuySignal: " + isBuySignal);
+
         if (isBuySignal) {
+            System.out.println("Buy Signal for " + stockSymbol + ": Consider selling shares based on the analysis.");
             producer.send(new ProducerRecord<>("analyzed-data", "Buy"));
         } else if (isSellSignal) {
             System.out.println("Sell Signal for " + stockSymbol + ": Consider selling shares based on the analysis.");
@@ -75,81 +94,25 @@ public class TradingSignalConsumer {
             producer.send(new ProducerRecord<>("analyzed-data", "No action"));
         }
     }
-    private static boolean isBuySignal(String tradingSignal) {
-        JsonNode signalNode = parseJson(tradingSignal);
-
-        if (signalNode == null) {
-            // Handle parsing error
-            return false;
+    private static double calculateMovingAverage(Queue<Double> pricesQueue) {
+        double sum = 0.0;
+        for (Double price : pricesQueue) {
+            sum += price;
         }
-
-        // Moving Averages: Buy when short-term MA crosses above long-term MA
-        boolean maBuySignal = hasDoubleValue(signalNode, "opening_price") &&
-                hasDoubleValue(signalNode, "closing_price") &&
-                signalNode.get("opening_price").asDouble() > signalNode.get("closing_price").asDouble();
-
-        // RSI: Buy when RSI is below a certain threshold (e.g., 30)
-        boolean rsiBuySignal = hasDoubleValue(signalNode, "rsi") &&
-                signalNode.get("rsi").asDouble() < 30;
-
-        // Price Trend: Buy in an upward trend
-//        boolean upwardTrend = hasDoubleValue(signalNode, "closing_price") &&
-//                hasDoubleValue(signalNode, "opening_price") &&
-//                signalNode.get("closing_price").asDouble() > signalNode.get("opening_price").asDouble();
-
-        // Volume Analysis: Buy on high trading volume during an upward price movement
-//        boolean highVolumeBuySignal = hasIntValue(signalNode, "volume") &&
-//                signalNode.get("volume").asInt() > 1000; // Adjust the threshold as needed
-
-        // Support and Resistance Levels: Buy on a bounce off a support level
-//        boolean supportBounceBuySignal = hasDoubleValue(signalNode, "low") &&
-//                hasDoubleValue(signalNode, "opening_price") &&
-//                signalNode.get("low").asDouble() > signalNode.get("opening_price").asDouble();
-
-        // Combine buy signals (you might need a more sophisticated strategy)
-        //if (maBuySignal || rsiBuySignal || upwardTrend || highVolumeBuySignal || supportBounceBuySignal)
-        //return
-//        int trueConditions = 0;
-//        System.out.println("maBuySignal" + maBuySignal);
-//        System.out.println("rsiBuySignal" + rsiBuySignal);
-
-        return maBuySignal && rsiBuySignal;
+        return sum / pricesQueue.size();
+    }
+    private static boolean isBuySignal(double movingAverage, double currentClosingPrice) {
+        // Add your buy signal logic here based on the Moving Average and current closing price
+        // For example, you can check if the current closing price is above the Moving Average.
+        return currentClosingPrice > movingAverage;
     }
 
-    private static boolean isSellSignal(String tradingSignal) {
-        JsonNode signalNode = parseJson(tradingSignal);
-
-        if (signalNode == null) {
-            // Handle parsing error
-            return false;
-        }
-
-        // Moving Averages: Sell when short-term MA crosses below long-term MA
-        boolean maSellSignal = hasDoubleValue(signalNode, "opening_price") &&
-                hasDoubleValue(signalNode, "closing_price") &&
-                signalNode.get("opening_price").asDouble() < signalNode.get("closing_price").asDouble();
-
-        // RSI: Sell when RSI is above a certain threshold (e.g., 70)
-        boolean rsiSellSignal = hasDoubleValue(signalNode, "rsi") &&
-                signalNode.get("rsi").asDouble() > 70;
-
-        // Price Trend: Sell in a downward trend
-//        boolean downwardTrend = hasDoubleValue(signalNode, "closing_price") &&
-//                hasDoubleValue(signalNode, "opening_price") &&
-//                signalNode.get("closing_price").asDouble() < signalNode.get("opening_price").asDouble();
-
-        // Volume Analysis: Sell on high trading volume during a downward price movement
-//        boolean highVolumeSellSignal = hasIntValue(signalNode, "volume") &&
-//                signalNode.get("volume").asInt() > 1000; // Adjust the threshold as needed
-
-        // Support and Resistance Levels: Sell on rejection at a resistance level
-//        boolean resistanceRejectSellSignal = hasDoubleValue(signalNode, "high") &&
-//                hasDoubleValue(signalNode, "closing_price") &&
-//                signalNode.get("high").asDouble() < signalNode.get("closing_price").asDouble();
-
-        // Combine sell signals (you might need a more sophisticated strategy)
-        return maSellSignal && rsiSellSignal;
+    private static boolean isSellSignal(double movingAverage, double currentClosingPrice) {
+        // Add your sell signal logic here based on the Moving Average and current closing price
+        // For example, you can check if the current closing price is below the Moving Average.
+        return currentClosingPrice < movingAverage;
     }
+
 
     private static boolean hasDoubleValue(JsonNode node, String key) {
         return node.has(key) && node.get(key).isNumber();

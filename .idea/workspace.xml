@@ -5,40 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed63cca1-a5d9-4e27-89f3-db5a0ffe3efe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocket-server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/apache_kafka_connect_api.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cn_hutool_json.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fasterxml_jackson_core_annotations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fasterxml_jackson_core_databind.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fasterxml_transistore_commands.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/datomic_java_io.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/fr_opensagres_xdocreport_springframework_web_servlet_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_boot_spring.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_boot_spring_actuator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_boot_spring_actuator_autoconfigure.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_roo_annotations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_webflow.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_webflow_binding.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/springframework_boot_spring.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/springframework_boot_spring_autoconfigure.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/springframework_ws_spring_core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/DataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/FinancialDataProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/FinancialDataProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/NotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/TradingSignalConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/TradingSignalConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocket Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocket Client.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocketConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocketNotificationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real-Time-Financial-Analysis-Trading-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Real-Time-Financial-Analysis-Trading-System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/DataHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/DataHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/NotificationService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/TradingSignalConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/TradingSignalConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/WebSocket Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/WebSocket Client.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/WebSocketNotificationService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +43,7 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.TradingSignalConsumer">
+  <component name="RunManager" selected="Application.DataServer">
     <configuration name="DataServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.DataServer" />
       <module name="Real-Time-Financial-Analysis-Trading-System" />
@@ -103,8 +72,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TradingSignalConsumer" />
         <item itemvalue="Application.DataServer" />
+        <item itemvalue="Application.TradingSignalConsumer" />
       </list>
     </recent_temporary>
   </component>
@@ -125,5 +94,16 @@
       <updated>1705043096375</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
