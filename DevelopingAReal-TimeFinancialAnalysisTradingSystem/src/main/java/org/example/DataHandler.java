@@ -6,8 +6,11 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 class DataHandler implements HttpHandler {
+    private static final List<String> receivedData = new ArrayList<>();
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         InputStream is = exchange.getRequestBody();
@@ -51,5 +54,5 @@ class DataHandler implements HttpHandler {
 
     }
 
-
 }
+

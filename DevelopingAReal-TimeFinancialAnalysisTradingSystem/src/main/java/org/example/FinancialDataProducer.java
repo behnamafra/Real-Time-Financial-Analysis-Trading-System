@@ -18,10 +18,6 @@ public class FinancialDataProducer {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         System.out.println("Data received from producer successfully"+data);
         try (Producer<String, String> producer = new KafkaProducer<>(props)) {
-            // Your data processing logic goes here
-
-            // Example: Sending financial data to Kafka
-            //String financialData = "{\"stock_symbol\":\"AAPL\",\"opening_price\":1000.0,\"closing_price\":1010.0,\"timestamp\":1704828371.9582646}";
             producer.send(new ProducerRecord<>("financial-data", data));
             System.out.println("Data sent to consumer successfully");
         }

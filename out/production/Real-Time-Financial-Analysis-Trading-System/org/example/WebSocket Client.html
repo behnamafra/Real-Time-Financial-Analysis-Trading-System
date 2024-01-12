@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket Client</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <title>Trading Signals</title>
 </head>
 <body>
+<h1>Trading Signals</h1>
+<ul id="signalList"></ul>
 
 <script>
-    const socket = new SockJS('http://localhost:8080/ws');
-    const stompClient = Stomp.over(socket);
+    // Establish WebSocket connection
+    const socket = new WebSocket("ws://localhost:8091/ws");
 
-    stompClient.connect({}, () => {
-        stompClient.subscribe('/topic/notifications', (message) => {
-            // Handle received notifications (e.g., log or display in the frontend)
-            console.log(JSON.parse(message.body));
-        });
+    // Handle incoming WebSocket messages
+    socket.onmessage = function (event) {
+        const signalList = document.getElementById("signalList");
+        const listItem = document.createElement("li");
+        listItem.textContent = event.data;
+        signalList.appendChild(listItem);
+    };
+
+    // Handle WebSocket errors
+    socket.onerror = function (error) {
+        console.error("WebSocket Error:", error);
+    };
+
+    // Handle WebSocket closure
+    socket.onclose = function (event) {
+        if (event.wasClean) {
+            console.log(`Closed cleanly, code=${event.code}, reason=${event.reason}`);
+        } else {
+            console.error("Connection died");
+        }
+    };
+
+    // Handle form submission (optional)
+    document.getElementById("signalForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const inputElement = document.getElementById("signalInput");
+        const signal = inputElement.value;
+        socket.send(signal);
+        inputElement.value = "";
     });
 </script>
-
 </body>
 </html>

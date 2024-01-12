@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed63cca1-a5d9-4e27-89f3-db5a0ffe3efe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocket-server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/apache_kafka_connect_api.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cn_hutool_json.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fasterxml_jackson_core_annotations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fasterxml_jackson_core_databind.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fasterxml_transistore_commands.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/datomic_java_io.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/fr_opensagres_xdocreport_springframework_web_servlet_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_boot_spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_boot_spring_actuator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_boot_spring_actuator_autoconfigure.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_roo_annotations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_webflow.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_webflow_binding.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/springframework_boot_spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/springframework_boot_spring_autoconfigure.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/springframework_ws_spring_core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/DataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/FinancialDataProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/FinancialDataProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/NotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/TradingSignalConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/TradingSignalConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocket Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocket Client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocketConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevelopingAReal-TimeFinancialAnalysisTradingSystem/src/main/java/org/example/WebSocketNotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Real-Time-Financial-Analysis-Trading-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Real-Time-Financial-Analysis-Trading-System.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/DataHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/DataHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/NotificationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/TradingSignalConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/TradingSignalConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/WebSocket Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/WebSocket Client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/WebSocketConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Real-Time-Financial-Analysis-Trading-System/org/example/WebSocketNotificationService.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2aqPNIXJtZa9Ohiy4hlk8VWLIwa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DataServer.executor": "Run",
+    "Application.TradingSignalConsumer.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/kafka/libs",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.TradingSignalConsumer">
+    <configuration name="DataServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.DataServer" />
+      <module name="Real-Time-Financial-Analysis-Trading-System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TradingSignalConsumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.TradingSignalConsumer" />
+      <module name="Real-Time-Financial-Analysis-Trading-System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TradingSignalConsumer" />
+        <item itemvalue="Application.DataServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-liberica-17.0.9-8336523bb0d9-e3b081fe" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed63cca1-a5d9-4e27-89f3-db5a0ffe3efe" name="Changes" comment="" />
+      <created>1705043096375</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705043096375</updated>
+    </task>
+    <servers />
+  </component>
+</project>
